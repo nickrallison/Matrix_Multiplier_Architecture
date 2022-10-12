@@ -1,9 +1,8 @@
 // From here
 
 module BoothMulti #(parameter N = 4, B = 0)
-									  (X, Y, Z, out);
+									  (X, Y, out);
 	input signed [N-1:0] X, Y;
-	output signed [2*N-1:0] Z;
 	output signed [N-1:0] out;
 	reg signed [2*N-1:0] Z;
 	reg signed [N-1:0] out;

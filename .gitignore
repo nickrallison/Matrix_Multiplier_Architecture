@@ -1,0 +1,5 @@
+*.bak
+RTL_Code/db
+RTL_Code/incremental_db
+RTL_Code/output_files
+RTL_Code/simulation

@@ -5,7 +5,8 @@ module DotProd #(parameter N=32, B=8, LEN=4)
 					  
 	genvar gen_i; 
 	integer k;
-	integer a;
+	genvar a;
+	genvar b;
 	integer j_odd;
 	integer leng;
 	reg [N-1:0] multarray [LEN-1:0];
@@ -15,21 +16,7 @@ module DotProd #(parameter N=32, B=8, LEN=4)
 		for (gen_i = 0; gen_i < LEN; gen_i = gen_i + 1) begin : multname
 			BoothMulti #(N, B) BoothMulti_ins(.X(inarray1[gen_i]), .Y(inarray2[gen_i]), .out(multarray[gen_i]));
 		end
+		PyramidAdder #(N, B, LEN) Pyramid_Adder_ins(.inarray(multarray), .result(dotprodout));
 	endgenerate
-	
-	always_comb begin
-		for (k = 0; k < LEN; k = k + 1) begin
-			partialsumarray[k][0] = multarray[k];
-		end
-	end
-	
-	always_comb begin
-		leng = LEN - 1;
-		for (a = 0; a < $clog2(LEN) + 1; a = a + 1) begin
-				
-		end
-	end
-		
-
 					  
 endmodule
